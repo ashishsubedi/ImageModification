@@ -28,124 +28,154 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.imageOrginal = new System.Windows.Forms.PictureBox();
-            this.imageProcessed = new System.Windows.Forms.PictureBox();
-            this.btnOpen = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabBW = new System.Windows.Forms.TabPage();
-            ((System.ComponentModel.ISupportInitialize)(this.imageOrginal)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageProcessed)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabBW.SuspendLayout();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bWToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.invertToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageOrginalBox = new System.Windows.Forms.PictureBox();
+            this.imageProcessedBox = new System.Windows.Forms.PictureBox();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mirrorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageOrginalBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageProcessedBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // imageOrginal
+            // menuStrip1
             // 
-            this.imageOrginal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.imageOrginal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imageOrginal.Location = new System.Drawing.Point(6, 6);
-            this.imageOrginal.Name = "imageOrginal";
-            this.imageOrginal.Size = new System.Drawing.Size(455, 390);
-            this.imageOrginal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imageOrginal.TabIndex = 0;
-            this.imageOrginal.TabStop = false;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.toolsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(972, 28);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // imageProcessed
+            // fileToolStripMenuItem
             // 
-            this.imageProcessed.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.imageProcessed.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.imageProcessed.Location = new System.Drawing.Point(489, 6);
-            this.imageProcessed.Name = "imageProcessed";
-            this.imageProcessed.Size = new System.Drawing.Size(455, 390);
-            this.imageProcessed.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.imageProcessed.TabIndex = 1;
-            this.imageProcessed.TabStop = false;
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.saveToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Text = "File";
             // 
-            // btnOpen
+            // toolsToolStripMenuItem
             // 
-            this.btnOpen.Location = new System.Drawing.Point(347, 442);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(75, 23);
-            this.btnOpen.TabIndex = 2;
-            this.btnOpen.Text = "Open";
-            this.btnOpen.UseVisualStyleBackColor = true;
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bWToolStripMenuItem,
+            this.invertToolStripMenuItem,
+            this.rotateToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
+            this.toolsToolStripMenuItem.Text = "Effects";
             // 
-            // button1
+            // bWToolStripMenuItem
             // 
-            this.button1.Location = new System.Drawing.Point(428, 442);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Convert";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.bWToolStripMenuItem.Name = "bWToolStripMenuItem";
+            this.bWToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.bWToolStripMenuItem.Text = "BW";
+            this.bWToolStripMenuItem.Click += new System.EventHandler(this.bWToolStripMenuItem_Click);
             // 
-            // button2
+            // invertToolStripMenuItem
             // 
-            this.button2.Location = new System.Drawing.Point(509, 442);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Save";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.invertToolStripMenuItem.Name = "invertToolStripMenuItem";
+            this.invertToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.invertToolStripMenuItem.Text = "Invert";
+            this.invertToolStripMenuItem.Click += new System.EventHandler(this.invertToolStripMenuItem_Click);
             // 
-            // tabControl1
+            // imageOrginalBox
             // 
-            this.tabControl1.Controls.Add(this.tabBW);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(958, 511);
-            this.tabControl1.TabIndex = 5;
+            this.imageOrginalBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.imageOrginalBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imageOrginalBox.Location = new System.Drawing.Point(12, 41);
+            this.imageOrginalBox.Name = "imageOrginalBox";
+            this.imageOrginalBox.Size = new System.Drawing.Size(455, 471);
+            this.imageOrginalBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imageOrginalBox.TabIndex = 5;
+            this.imageOrginalBox.TabStop = false;
             // 
-            // tabBW
+            // imageProcessedBox
             // 
-            this.tabBW.Controls.Add(this.button2);
-            this.tabBW.Controls.Add(this.imageOrginal);
-            this.tabBW.Controls.Add(this.button1);
-            this.tabBW.Controls.Add(this.btnOpen);
-            this.tabBW.Controls.Add(this.imageProcessed);
-            this.tabBW.Location = new System.Drawing.Point(4, 25);
-            this.tabBW.Name = "tabBW";
-            this.tabBW.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBW.Size = new System.Drawing.Size(950, 482);
-            this.tabBW.TabIndex = 0;
-            this.tabBW.Text = "BW";
-            this.tabBW.UseVisualStyleBackColor = true;
-            this.tabBW.Click += new System.EventHandler(this.tabPage1_Click);
+            this.imageProcessedBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.imageProcessedBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imageProcessedBox.Location = new System.Drawing.Point(495, 41);
+            this.imageProcessedBox.Name = "imageProcessedBox";
+            this.imageProcessedBox.Size = new System.Drawing.Size(455, 471);
+            this.imageProcessedBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imageProcessedBox.TabIndex = 6;
+            this.imageProcessedBox.TabStop = false;
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // rotateToolStripMenuItem
+            // 
+            this.rotateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mirrorToolStripMenuItem});
+            this.rotateToolStripMenuItem.Name = "rotateToolStripMenuItem";
+            this.rotateToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.rotateToolStripMenuItem.Text = "Rotate";
+            // 
+            // mirrorToolStripMenuItem
+            // 
+            this.mirrorToolStripMenuItem.Name = "mirrorToolStripMenuItem";
+            this.mirrorToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.mirrorToolStripMenuItem.Text = "Mirror";
+            this.mirrorToolStripMenuItem.Click += new System.EventHandler(this.mirrorToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 524);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.imageOrginalBox);
+            this.Controls.Add(this.imageProcessedBox);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Image Processing";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.imageOrginal)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.imageProcessed)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabBW.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageOrginalBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imageProcessedBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox imageOrginal;
-        private System.Windows.Forms.PictureBox imageProcessed;
-        private System.Windows.Forms.Button btnOpen;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabBW;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bWToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem invertToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.PictureBox imageOrginalBox;
+        private System.Windows.Forms.PictureBox imageProcessedBox;
+        private System.Windows.Forms.ToolStripMenuItem rotateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mirrorToolStripMenuItem;
     }
 }
 

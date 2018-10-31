@@ -18,8 +18,7 @@ namespace ImageModification
         public static void MakeGray(Bitmap image)
         {
             //Algorithm from wikipedia and https://stackoverflow.com/questions/17615963/standard-rgb-to-grayscale-conversion
-          
-            
+
             for (int i = 0; i< image.Width; i++)
             {
                 for (int j = 0; j < image.Height; j++)
@@ -46,6 +45,25 @@ namespace ImageModification
                 }
             }
             
+        }
+        public static void Invert(Bitmap image)
+        {
+            for (int i = 0; i < image.Width; i++)
+            {
+                for (int j = 0; j < image.Height; j++)
+                {
+                    Color color = image.GetPixel(i, j);
+                    int r = color.R;
+                    int g = color.G;
+                    int b = color.B;
+
+                    image.SetPixel(i, j, Color.FromArgb(255 - r, 255 - g, 255 - b));
+                }
+            }
+        }
+        public static void Rotate(Bitmap image, RotateFlipType rotateFlipType)
+        {
+            image.RotateFlip(rotateFlipType);     
         }
     }
 }

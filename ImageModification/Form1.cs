@@ -16,6 +16,11 @@ namespace ImageModification
     public partial class Form1 : Form
     {
         Bitmap originalImage,processedImage;
+
+        //For brightness adjustment
+        HScrollBar slider;
+        Button confirm ;
+
         public Form1()
         {
             InitializeComponent();
@@ -26,10 +31,58 @@ namespace ImageModification
         {
             originalImage = null;
             processedImage = null;
+
+            slider = new HScrollBar();
+            confirm = new Button();
+
             
+            slider.Size = new Size(680, 10);
+            slider.Location = new Point(0, this.Height - 65);
+            slider.Minimum = -100;
+            slider.Maximum = 100;
+            slider.Value = 0;
+            //slider.Dock = DockStyle.Bottom;
+            confirm.Location = new Point(slider.Location.X+ 680, slider.Location.Y);
+            confirm.Size = new Size(40,20);
+            confirm.Text = "OK";
+           
+
+
+            this.Controls.Add(slider);
+            this.Controls.Add(confirm);
+
+            slider.Scroll += new ScrollEventHandler(slideScroll);
+            confirm.Click += Confirm_Click;
+
+
+            slider.Visible = false;
+            confirm.Visible = false;
+
+
 
         }
-     
+
+        private void Confirm_Click(object sender, EventArgs e)
+        {
+            slider.Visible = false;
+
+            confirm.Visible = false;
+
+        }
+
+
+        private void slideScroll(object sender, ScrollEventArgs e)
+        {
+            if(e.Type == ScrollEventType.ThumbPosition)
+            {
+                processedImage =(Bitmap) originalImage.Clone();
+                Processing.AdjustBrightness(processedImage, slider.Value);
+                imageProcessedBox.Image = processedImage;
+
+            }
+           
+
+        }
 
         private void openImage(PictureBox pictureBox)
         {
@@ -81,13 +134,14 @@ namespace ImageModification
             }
 
         }
-        private void checkImageExist()
+        private Boolean checkImageExist()
         {
             if (originalImage == null)
             {
                 MessageBox.Show("Select an image first");
-                return;
+                return false;
             }
+            return true;
         }
 
 
@@ -95,7 +149,7 @@ namespace ImageModification
         {
             checkImageExist();
 
-            processedImage = originalImage;
+            processedImage = (Bitmap)originalImage.Clone();
             Processing.MakeGray(processedImage);
             imageProcessedBox.Image = processedImage;
         }
@@ -112,19 +166,33 @@ namespace ImageModification
 
         private void mirrorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            checkImageExist();
+            if (!checkImageExist()) return;
 
-            processedImage = originalImage;
+            processedImage = (Bitmap)originalImage.Clone();
             Processing.Rotate(processedImage, RotateFlipType.RotateNoneFlipX);
             imageProcessedBox.Image = processedImage;
 
         }
 
+        private void adjustBrightnessToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!checkImageExist()) return;
+
+            processedImage = (Bitmap)originalImage.Clone();
+            slider.Visible = true;
+           
+            confirm.Visible = true;
+          
+
+            
+        }
+        
+
         private void invertToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            checkImageExist();
+            if (!checkImageExist()) return;
 
-            processedImage = originalImage;
+            processedImage = (Bitmap)originalImage.Clone();
             Processing.Invert(processedImage);
             imageProcessedBox.Image = processedImage;
         }

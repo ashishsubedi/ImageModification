@@ -39,6 +39,7 @@
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rotateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mirrorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adjustBrightnessToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imageOrginalBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imageProcessedBox)).BeginInit();
@@ -52,7 +53,7 @@
             this.toolsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(972, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(978, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -70,7 +71,8 @@
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bWToolStripMenuItem,
             this.invertToolStripMenuItem,
-            this.rotateToolStripMenuItem});
+            this.rotateToolStripMenuItem,
+            this.adjustBrightnessToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
             this.toolsToolStripMenuItem.Text = "Effects";
@@ -95,7 +97,7 @@
             this.imageOrginalBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.imageOrginalBox.Location = new System.Drawing.Point(12, 41);
             this.imageOrginalBox.Name = "imageOrginalBox";
-            this.imageOrginalBox.Size = new System.Drawing.Size(455, 471);
+            this.imageOrginalBox.Size = new System.Drawing.Size(455, 449);
             this.imageOrginalBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imageOrginalBox.TabIndex = 5;
             this.imageOrginalBox.TabStop = false;
@@ -106,7 +108,7 @@
             this.imageProcessedBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.imageProcessedBox.Location = new System.Drawing.Point(495, 41);
             this.imageProcessedBox.Name = "imageProcessedBox";
-            this.imageProcessedBox.Size = new System.Drawing.Size(455, 471);
+            this.imageProcessedBox.Size = new System.Drawing.Size(455, 449);
             this.imageProcessedBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imageProcessedBox.TabIndex = 6;
             this.imageProcessedBox.TabStop = false;
@@ -140,11 +142,18 @@
             this.mirrorToolStripMenuItem.Text = "Mirror";
             this.mirrorToolStripMenuItem.Click += new System.EventHandler(this.mirrorToolStripMenuItem_Click);
             // 
+            // adjustBrightnessToolStripMenuItem
+            // 
+            this.adjustBrightnessToolStripMenuItem.Name = "adjustBrightnessToolStripMenuItem";
+            this.adjustBrightnessToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.adjustBrightnessToolStripMenuItem.Text = "Adjust Brightness";
+            this.adjustBrightnessToolStripMenuItem.Click += new System.EventHandler(this.adjustBrightnessToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 524);
+            this.ClientSize = new System.Drawing.Size(978, 583);
             this.Controls.Add(this.imageOrginalBox);
             this.Controls.Add(this.imageProcessedBox);
             this.Controls.Add(this.menuStrip1);
@@ -176,6 +185,7 @@
         private System.Windows.Forms.PictureBox imageProcessedBox;
         private System.Windows.Forms.ToolStripMenuItem rotateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mirrorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adjustBrightnessToolStripMenuItem;
     }
 }
 

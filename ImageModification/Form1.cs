@@ -21,6 +21,7 @@ namespace ImageModification
         //For brightness adjustment
         HScrollBar slider;
         Button confirm ;
+        Label label;
 
         public Form1()
         {
@@ -35,6 +36,7 @@ namespace ImageModification
 
             slider = new HScrollBar();
             confirm = new Button();
+            label = new Label();
 
             
             slider.Size = new Size(680, 10);
@@ -46,11 +48,16 @@ namespace ImageModification
             confirm.Location = new Point(slider.Location.X+ 680, slider.Location.Y);
             confirm.Size = new Size(40,20);
             confirm.Text = "OK";
+
+            label.Location = new Point(slider.Location.X, slider.Location.Y - 40);
+            label.Size = new Size(50, 20);
+            label.Text = "Status";
            
 
 
             this.Controls.Add(slider);
             this.Controls.Add(confirm);
+            this.Controls.Add(label);
 
             slider.Scroll += new ScrollEventHandler(slideScroll);
             confirm.Click += Confirm_Click;
@@ -58,6 +65,7 @@ namespace ImageModification
 
             slider.Visible = false;
             confirm.Visible = false;
+            label.Visible = false;
 
 
 
@@ -68,28 +76,35 @@ namespace ImageModification
             slider.Visible = false;
 
             confirm.Visible = false;
+            label.Visible = false;
 
         }
 
 
-        private void slideScroll(object sender, ScrollEventArgs e)
+        private async void slideScroll(object sender, ScrollEventArgs e)
         {
             if (e.Type == ScrollEventType.ThumbPosition)
             {
-                Thread t = new Thread(adjustBrightnessThread);
-                t.Start();
+                Task task = new Task(adjustBrightnessThread);
+                task.Start();
+
+                label.Text = "Applying.. Please wait...";
+                slider.Enabled = false;
+                await task;
+                label.Text = "Done.";
+                slider.Enabled = true;
+
             }
-    
-            
-           
+
 
         }
+
+      
+
         private async void adjustBrightnessThread()
         {
-
-            Object lockObejct = new object();
-
-            lock (lockObejct)
+            Object lockObject = new object();
+            lock (lockObject)
             {
 
                 Bitmap cloneImage = (Bitmap)originalImage.Clone();
@@ -100,6 +115,8 @@ namespace ImageModification
                 imageProcessedBox.Image = processedImage;
 
             }
+           
+
 
 
             
@@ -204,9 +221,10 @@ namespace ImageModification
             slider.Visible = true;
            
             confirm.Visible = true;
-          
+            label.Visible = true;
 
-            
+
+
         }
         
 

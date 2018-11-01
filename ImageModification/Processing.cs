@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace ImageModification
@@ -67,28 +67,29 @@ namespace ImageModification
         }
         public static void AdjustBrightness(Bitmap image, float value)
         {
-            for (int i = 0; i < image.Width; i++)
-            {
-                for (int j = 0; j < image.Height; j++)
+            
+                for (int i = 0; i < image.Width; i++)
                 {
-                    Color color = image.GetPixel(i, j);
-                    int r = (int)(color.R + value);
-                    int g = (int)(color.G + value);
-                    int b = (int)(color.B + value);
+                    for (int j = 0; j < image.Height; j++)
+                    {
+                        Color color = image.GetPixel(i, j);
+                        int r = (int)(color.R + value);
+                        int g = (int)(color.G + value);
+                        int b = (int)(color.B + value);
 
-                    if (r > 255) r = 255;
-                    if (g > 255) g = 255;
-                    if (b > 255) b = 255;
-                    if (r < 0) r = 0;
-                    if (g < 0) g = 0;
-                    if (b < 0) b = 0;
-                   
+                        if (r > 255) r = 255;
+                        if (g > 255) g = 255;
+                        if (b > 255) b = 255;
+                        if (r < 0) r = 0;
+                        if (g < 0) g = 0;
+                        if (b < 0) b = 0;
 
-
-
-                    image.SetPixel(i, j, Color.FromArgb(r, g, b));
-                }
+                        image.SetPixel(i, j, Color.FromArgb(r, g, b));
+                    }
+                
             }
+            
+            
         }
         
     }

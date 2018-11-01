@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -73,14 +74,35 @@ namespace ImageModification
 
         private void slideScroll(object sender, ScrollEventArgs e)
         {
-            if(e.Type == ScrollEventType.ThumbPosition)
+            if (e.Type == ScrollEventType.ThumbPosition)
             {
-                processedImage =(Bitmap) originalImage.Clone();
-                Processing.AdjustBrightness(processedImage, slider.Value);
+                Thread t = new Thread(adjustBrightnessThread);
+                t.Start();
+            }
+    
+            
+           
+
+        }
+        private async void adjustBrightnessThread()
+        {
+
+            Object lockObejct = new object();
+
+            lock (lockObejct)
+            {
+
+                Bitmap cloneImage = (Bitmap)originalImage.Clone();
+
+                Processing.AdjustBrightness(cloneImage, slider.Value);
+                processedImage = (Bitmap)cloneImage.Clone();
+
                 imageProcessedBox.Image = processedImage;
 
             }
-           
+
+
+            
 
         }
 

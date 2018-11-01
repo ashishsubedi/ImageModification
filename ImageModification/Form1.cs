@@ -107,7 +107,7 @@ namespace ImageModification
             lock (lockObject)
             {
 
-                Bitmap cloneImage = (Bitmap)originalImage.Clone();
+                Bitmap cloneImage = (Bitmap)processedImage.Clone();
 
                 Processing.AdjustBrightness(cloneImage, slider.Value);
                 processedImage = (Bitmap)cloneImage.Clone();
@@ -131,6 +131,7 @@ namespace ImageModification
             {
                 originalImage = new Bitmap(ofile.FileName);
                 pictureBox.Image = originalImage;
+                processedImage = originalImage.Clone() as Bitmap;
 
             }
         }
@@ -188,7 +189,7 @@ namespace ImageModification
         {
             checkImageExist();
 
-            processedImage = (Bitmap)originalImage.Clone();
+            //processedImage = (Bitmap)processedImage.Clone();
             Processing.MakeGray(processedImage);
             imageProcessedBox.Image = processedImage;
         }
@@ -207,7 +208,7 @@ namespace ImageModification
         {
             if (!checkImageExist()) return;
 
-            processedImage = (Bitmap)originalImage.Clone();
+           // processedImage = (Bitmap)originalImage.Clone();
             Processing.Rotate(processedImage, RotateFlipType.RotateNoneFlipX);
             imageProcessedBox.Image = processedImage;
 
@@ -217,7 +218,7 @@ namespace ImageModification
         {
             if (!checkImageExist()) return;
 
-            processedImage = (Bitmap)originalImage.Clone();
+           // processedImage = (Bitmap)originalImage.Clone();
             slider.Visible = true;
            
             confirm.Visible = true;
@@ -232,7 +233,7 @@ namespace ImageModification
         {
             if (!checkImageExist()) return;
 
-            processedImage = (Bitmap)originalImage.Clone();
+           // processedImage = (Bitmap)originalImage.Clone();
             Processing.Invert(processedImage);
             imageProcessedBox.Image = processedImage;
         }
